@@ -14,8 +14,10 @@ function palindromeSwapper(str) {
     else{
     for (var j = 0; j < str.length; j++) {
       //console.log(i,j)
-      if (i === j) {
+      if (i === j ) {
+        if(str[j+1]!=undefined){
         newStr += str[j+1];
+        }
         newStr += str[j];
         //console.log(newStr,'inFor')
         j++;
@@ -25,7 +27,7 @@ function palindromeSwapper(str) {
         //console.log(newStr,'inForElse')
       }
     }
-    //console.log(newStr)
+    console.log(newStr)
     if (isPalindrome(newStr)) return true;
     }
   }
