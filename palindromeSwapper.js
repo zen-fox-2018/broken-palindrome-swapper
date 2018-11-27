@@ -7,19 +7,31 @@
  */
 function palindromeSwapper(str) {
   let newStr = '';
-  for (var i = 0; i < str.length; i++) {
-    for (var j = 0; j < str.length; i++) {
-      if (i === j) {
-        newStr += str[j++];
-        newStr += str[j];
-        j++;
-      } else {
-        newStr += str[j];
-      }
-    }
-    if (isPalindrome(newStr)) return true;
+  // console.log('main',str);
+  if (isPalindrome(str)){
+    return true;
   }
-  return false;
+  else{
+    for (var i = 0; i < str.length; i++) {
+      for (var j = 0; j < str.length-1; j++) {
+        if (i === j) {
+          newStr += str[j+1];
+          newStr += str[j];
+          // newStr += str[j];
+          // str[j] =  newStr;
+        }
+        else {
+          newStr += str[j];
+        }
+      }
+      // console.log(newStr);
+      if (isPalindrome(newStr)) {
+        return true;
+      }
+      newStr='';
+    }
+    return false;
+  }
 }
 
 /**
@@ -29,8 +41,12 @@ function palindromeSwapper(str) {
  * @returns {boolean} true bila kata adalah palindrom
  */
 function isPalindrome(str) {
-  if (str.split('').reverse().join() === str) return console.log(true);
-  return console.log(false);
+  if (str.split('').reverse().join() === str.split('').join()) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 console.log(palindromeSwapper('arcecar')); // TRUE
